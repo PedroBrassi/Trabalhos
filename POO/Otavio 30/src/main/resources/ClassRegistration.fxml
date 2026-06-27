@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15.0" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.view.ClassRegistrationController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Cadastrar Nova Turma" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Código da Turma:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtClassCode" promptText="Ex: COM112" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Título da Disciplina:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtClassTitle" promptText="Ex: Algoritmos" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Salvar Turma" onAction="#handleSaveClass" style="-fx-base: #2196F3; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

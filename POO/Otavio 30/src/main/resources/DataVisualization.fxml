@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.view.DataVisualizationController">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Painel de Consulta Geral" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <Button text="🔄 Atualizar" onAction="#loadDataFromBackend"/>
+    </HBox>
+
+    <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+        <VBox spacing="5">
+            <Label text="Turmas Cadastradas" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="tableClasses" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colClassCode" text="Código" prefWidth="100"/>
+                    <TableColumn fx:id="colClassTitle" text="Título" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Avaliações da Turma" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="tableAssessments" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colAsmntType" text="Tipo" prefWidth="120"/>
+                    <TableColumn fx:id="colAsmntValue" text="Nota" prefWidth="80"/>
+                    <TableColumn fx:id="colAsmntWeight" text="Peso" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </SplitPane>
+</VBox>
