@@ -1,34 +1,27 @@
 package org.example;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.util.SceneManager;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        try {
-            // Localiza e carrega o arquivo FXML usando o caminho correto
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/academic/system/view/ClassRegistration.fxml"));
-            Parent root = loader.load();
+    public void start(Stage stage) {
 
-            // Configura a janela principal do JavaFX
-            primaryStage.setTitle("Sistema Acadêmico - Cadastro de Turmas");
-            primaryStage.setScene(new Scene(root));
-            primaryStage.setResizable(false);
-            primaryStage.show();
+        SceneManager.setStage(stage);
 
-        } catch (Exception e) {
-            System.err.println("Erro ao iniciar a interface gráfica: " + e.getMessage());
-            e.printStackTrace();
-        }
+        SceneManager.switchScene(
+                "MainScreen.fxml",
+                "Sistema Acadêmico"
+        );
+
     }
 
-    // O método principal que o Java procura para iniciar tudo
     public static void main(String[] args) {
+
         launch(args);
+
     }
+
 }
