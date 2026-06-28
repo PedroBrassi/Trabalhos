@@ -3,7 +3,7 @@ package org.example.academic.system;
 import org.example.academic.system.model.Exam;
 import org.example.academic.system.model.PersistenceType;
 import org.example.academic.system.model.Role;
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 import org.example.academic.system.model.Seminar;
 import org.example.academic.system.service.ReportService;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,20 +17,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ReportGenerationTest {
 
     private ReportService reportService;
-    private SchoolClass schoolClass;
+    private AcademicClass academicClass;
 
     @BeforeEach
     void setUp() {
         reportService = new ReportService();
-        schoolClass = new SchoolClass("CC101", "Introdução a POO");
-        schoolClass.addAssessment(new Exam(8.0, 0.4));
-        schoolClass.addAssessment(new Seminar(9.0, 0.6));
+        academicClass = new AcademicClass("CC101", "Introdução a POO");
+        academicClass.addAssessment(new Exam(8.0, 0.4));
+        academicClass.addAssessment(new Seminar(9.0, 0.6));
     }
 
     @Test
     @DisplayName("resumo traz código, título, tipo, valor e peso")
     void summaryShouldContainClassData() {
-        String report = reportService.generateClassAssessmentSummary(schoolClass, Role.PROFESSOR);
+        String report = reportService.generateClassAssessmentSummary(academicClass, Role.PROFESSOR);
 
         assertTrue(report.contains("CC101"));
         assertTrue(report.contains("Introdução a POO"));
@@ -42,7 +42,7 @@ class ReportGenerationTest {
     @Test
     @DisplayName("relatório de pesos soma o peso total corretamente")
     void weightReportShouldCalculateTotal() {
-        double total = reportService.generateAssessmentWeightReport(schoolClass, Role.PROFESSOR);
+        double total = reportService.generateAssessmentWeightReport(academicClass, Role.PROFESSOR);
         assertEquals(1.0, total, 1e-9);
     }
 

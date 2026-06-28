@@ -1,7 +1,7 @@
 package org.example.academic.system;
 
 import org.example.academic.system.model.Exam;
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 import org.example.academic.system.repository.ClassRepository;
 import org.example.academic.system.repository.JsonClassRepository;
 import org.example.academic.system.repository.TxtClassRepository;
@@ -22,10 +22,10 @@ class PersistenceRepositoryTest {
     @TempDir
     Path tempDir;
 
-    private SchoolClass sampleClass() {
-        SchoolClass schoolClass = new SchoolClass("CC101", "Introdução a POO");
-        schoolClass.addAssessment(new Exam(8.0, 0.4));
-        return schoolClass;
+    private AcademicClass sampleClass() {
+        AcademicClass academicClass = new AcademicClass("CC101", "Introdução a POO");
+        academicClass.addAssessment(new Exam(8.0, 0.4));
+        return academicClass;
     }
 
     @Test

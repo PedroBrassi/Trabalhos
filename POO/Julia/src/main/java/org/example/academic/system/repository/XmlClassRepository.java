@@ -4,7 +4,7 @@ import org.example.academic.system.exception.AcademicSystemException;
 import org.example.academic.system.logging.PersistenceAuditLogger;
 import org.example.academic.system.model.Assessment;
 import org.example.academic.system.model.PersistenceType;
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,15 +13,15 @@ import java.util.List;
 
 public class XmlClassRepository implements ClassRepository {
 
-    private final List<SchoolClass> database = new ArrayList<>();
+    private final List<AcademicClass> database = new ArrayList<>();
 
     @Override
-    public void save(SchoolClass schoolClass) {
-        database.add(schoolClass);
+    public void save(AcademicClass academicClass) {
+        database.add(academicClass);
     }
 
     @Override
-    public List<SchoolClass> findAll() {
+    public List<AcademicClass> findAll() {
         return database;
     }
 
@@ -33,7 +33,7 @@ public class XmlClassRepository implements ClassRepository {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             writer.write("<classes>\n");
 
-            for (SchoolClass sc : database) {
+            for (AcademicClass sc : database) {
                 writer.write("  <class code=\"" + escape(sc.getCode())
                         + "\" title=\"" + escape(sc.getTitle()) + "\">\n");
 

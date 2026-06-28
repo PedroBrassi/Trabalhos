@@ -5,7 +5,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.example.academic.system.model.Assessment;
 import org.example.academic.system.model.Exam;
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -34,22 +34,22 @@ class DomainValidationTest {
     @Test
     @DisplayName("turma válida passa na validação")
     void validClassShouldPass() {
-        SchoolClass schoolClass = new SchoolClass("CC101", "Introdução a POO");
-        assertTrue(validator.validate(schoolClass).isEmpty());
+        AcademicClass academicClass = new AcademicClass("CC101", "Introdução a POO");
+        assertTrue(validator.validate(academicClass).isEmpty());
     }
 
     @Test
     @DisplayName("turma com código em branco falha")
     void blankCodeShouldFail() {
-        SchoolClass schoolClass = new SchoolClass("   ", "Introdução a POO");
-        assertFalse(validator.validate(schoolClass).isEmpty());
+        AcademicClass academicClass = new AcademicClass("   ", "Introdução a POO");
+        assertFalse(validator.validate(academicClass).isEmpty());
     }
 
     @Test
     @DisplayName("turma com título em branco falha")
     void blankTitleShouldFail() {
-        SchoolClass schoolClass = new SchoolClass("CC101", "");
-        assertFalse(validator.validate(schoolClass).isEmpty());
+        AcademicClass academicClass = new AcademicClass("CC101", "");
+        assertFalse(validator.validate(academicClass).isEmpty());
     }
 
     @Test

@@ -1,14 +1,14 @@
 package org.example.academic.system.repository;
 
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 
 import java.util.List;
 
 public interface ClassRepository {
 
-    void save(SchoolClass schoolClass);
+    void save(AcademicClass academicClass);
 
-    List<SchoolClass> findAll();
+    List<AcademicClass> findAll();
 
     void exportToFile(String fileName);
 }

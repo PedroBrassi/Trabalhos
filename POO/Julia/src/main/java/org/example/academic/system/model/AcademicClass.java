@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchoolClass {
+public class AcademicClass {
 
     @NotBlank(message = "class code must not be blank")
     private String code;
@@ -17,7 +17,7 @@ public class SchoolClass {
     @Valid
     private List<Assessment> assessments = new ArrayList<>();
 
-    public SchoolClass(String code, String title) {
+    public AcademicClass(String code, String title) {
         this.code = code;
         this.title = title;
     }

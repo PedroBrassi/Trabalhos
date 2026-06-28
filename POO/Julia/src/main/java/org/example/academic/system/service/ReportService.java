@@ -4,17 +4,17 @@ import org.example.academic.system.logging.ReportAuditLogger;
 import org.example.academic.system.model.Assessment;
 import org.example.academic.system.model.PersistenceType;
 import org.example.academic.system.model.Role;
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 
 public class ReportService {
 
-    public String generateClassAssessmentSummary(SchoolClass schoolClass, Role role) {
+    public String generateClassAssessmentSummary(AcademicClass academicClass, Role role) {
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Class Code: ").append(schoolClass.getCode()).append("\n");
-        sb.append("Class Title: ").append(schoolClass.getTitle()).append("\n");
+        sb.append("Class Code: ").append(academicClass.getCode()).append("\n");
+        sb.append("Class Title: ").append(academicClass.getTitle()).append("\n");
 
-        for (Assessment a : schoolClass.getAssessments()) {
+        for (Assessment a : academicClass.getAssessments()) {
             sb.append("Assessment: ").append(a.getClass().getSimpleName())
                     .append(" | value=").append(a.getValue())
                     .append(" | weight=").append(a.getWeight())
@@ -25,10 +25,10 @@ public class ReportService {
         return sb.toString();
     }
 
-    public double generateAssessmentWeightReport(SchoolClass schoolClass, Role role) {
+    public double generateAssessmentWeightReport(AcademicClass academicClass, Role role) {
 
         double total = 0.0;
-        for (Assessment a : schoolClass.getAssessments()) {
+        for (Assessment a : academicClass.getAssessments()) {
             total += a.getWeight();
         }
 

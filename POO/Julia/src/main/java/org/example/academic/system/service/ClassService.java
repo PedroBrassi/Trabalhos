@@ -2,7 +2,7 @@ package org.example.academic.system.service;
 
 import org.example.academic.system.exception.AcademicSystemException;
 import org.example.academic.system.logging.AppLogger;
-import org.example.academic.system.model.SchoolClass;
+import org.example.academic.system.model.AcademicClass;
 import org.example.academic.system.repository.ClassRepository;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class ClassService {
         this.repository = repository;
     }
 
-    public SchoolClass registerClass(String code, String title) {
+    public AcademicClass registerClass(String code, String title) {
 
         if (code == null || code.isBlank()) {
             throw new AcademicSystemException("Invalid class code");
@@ -32,14 +32,14 @@ public class ClassService {
             throw new AcademicSystemException("Invalid class title");
         }
 
-        SchoolClass schoolClass = new SchoolClass(code, title);
-        repository.save(schoolClass);
+        AcademicClass academicClass = new AcademicClass(code, title);
+        repository.save(academicClass);
 
         log.info("Class registered: " + code);
-        return schoolClass;
+        return academicClass;
     }
 
-    public List<SchoolClass> listClasses() {
+    public List<AcademicClass> listClasses() {
         return repository.findAll();
     }
 }
