@@ -1,24 +1,25 @@
-name: Academic System CI-CD
+name: Pull Request Validation
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  validate:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout do código
         uses: actions/checkout@v4
 
       - name: Configurar Java 25
         uses: actions/setup-java@v4
         with:
+          distribution: temurin
           java-version: '25'
-          distribution: 'temurin'
           cache: maven
 
       - name: Compilar o projeto
@@ -27,11 +28,5 @@ jobs:
       - name: Executar testes
         run: mvn test
 
-      - name: Gerar pacote da aplicação
+      - name: Verificar o pacote
         run: mvn package
-
-      - name: Publicar artefato
-        uses: actions/upload-artifact@v4
-        with:
-          name: academic-system
-          path: target/*.jar
