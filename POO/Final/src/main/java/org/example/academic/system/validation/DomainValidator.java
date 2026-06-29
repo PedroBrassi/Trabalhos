@@ -21,7 +21,7 @@ public class DomainValidator {
         try (ValidatorFactory factory = Validation.buildDefaultValidatorFactory()) {
             VALIDATOR = factory.getValidator();
         }
-    }
+    } // teste
 
     private DomainValidator() {}
 
