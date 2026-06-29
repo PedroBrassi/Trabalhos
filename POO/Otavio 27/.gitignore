@@ -1,5 +1,0 @@
-# Build output
-target/
-
-# Logs gerados em runtime
-*.log
