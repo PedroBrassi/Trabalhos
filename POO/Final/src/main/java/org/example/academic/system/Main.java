@@ -31,5 +31,5 @@ public class Main {
             System.out.println("[ERROR] An unexpected error occurred. Please contact support.");
             log.error("Unexpected error: {}", e.getMessage(), e);
         }
-    }
+    } // Teste CI e Docker
 }
