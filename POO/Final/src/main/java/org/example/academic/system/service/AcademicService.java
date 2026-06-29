@@ -1,34 +1,33 @@
 package org.example.academic.system.service;
 
-import org.example.academic.system.exception.ClassNotFoundException;
-import org.example.academic.system.exception.InvalidAssessmentException;
-import org.example.academic.system.model.*;
+import org.example.academic.system.model.AcademicClass;
 import org.example.academic.system.repository.AcademicClassRepository;
-import org.example.academic.system.validation.DomainValidator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Lógica de negócio para gerenciamento de turmas e avaliações.
+ * Fachada de negócio para turmas e avaliações.
+ *
+ * <p>Delega às responsabilidades coesas de {@link ClassService} e
+ * {@link AssessmentService} (TUS-2400), mantendo uma API única e estável para
+ * o {@code AcademicSystemController} e para a camada de apresentação (CLI/GUI).</p>
  */
 public class AcademicService {
 
-    private static final Logger log = LoggerFactory.getLogger(AcademicService.class);
+    private final ClassService classService;
+    private final AssessmentService assessmentService;
     private final AcademicClassRepository repository;
 
     public AcademicService(AcademicClassRepository repository) {
         this.repository = repository;
+        this.classService = new ClassService(repository);
+        this.assessmentService = new AssessmentService(repository);
     }
 
     /** Cadastra uma nova turma após validação (US-2363). */
     public void registerClass(String code, String title) {
-        AcademicClass academicClass = new AcademicClass(code, title);
-        DomainValidator.validate(academicClass);
-        repository.save(academicClass);
-        log.info("Class registered: code='{}', title='{}'", code, title);
+        classService.registerClass(code, title);
     }
 
     /**
@@ -40,24 +39,7 @@ public class AcademicService {
      * @param weight         peso (0-1)
      */
     public void registerAssessment(String classCode, int assessmentType, double value, double weight) {
-        AcademicClass academicClass = repository.findByCode(classCode)
-                .orElseThrow(() -> new ClassNotFoundException(classCode));
-
-        Assessment assessment = createAssessment(assessmentType, value, weight);
-        DomainValidator.validate(assessment);
-        academicClass.addAssessment(assessment);
-        log.info("Assessment '{}' registered in class '{}'", assessment.getType(), classCode);
-    }
-
-    private Assessment createAssessment(int type, double value, double weight) {
-        return switch (type) {
-            case 1 -> new Exam(value, weight);
-            case 2 -> new PracticalAssignment(value, weight);
-            case 3 -> new Seminar(value, weight);
-            case 4 -> new Assignment(value, weight);
-            default -> throw new InvalidAssessmentException(
-                    "Invalid assessment type: " + type + ". Valid types: 1=Exam, 2=PracticalAssignment, 3=Seminar, 4=Assignment");
-        };
+        assessmentService.registerAssessment(classCode, assessmentType, value, weight);
     }
 
     public Optional<AcademicClass> findByCode(String code) {

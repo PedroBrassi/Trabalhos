@@ -158,18 +158,18 @@ Marque cada item conforme o trabalho avança e realize commit da versão mais re
 
 ## 👤 Aurelio – US-2373 a TUS-2384
 
-- [ ] US-2373 – Save academic data to XML file
-- [ ] US-2374 – Save academic data to JSON file
-- [ ] US-2375 – Generate class assessment summary report
-- [ ] US-2376 – Generate assessment weight report
-- [ ] US-2377 – Generate persistence configuration report
-- [ ] US-2378 – Role-based dynamic menu rendering
-- [ ] US-2379 – Logout
-- [ ] US-2380 – Display role-specific sequential menus
-- [ ] US-2381 – Deliver academic system with Docker
-- [ ] TUS-2382 – Define equality for identifiable domain objects
-- [ ] TUS-2383 – Configure automated testing infrastructure
-- [ ] TUS-2384 – Test identifiable domain object equality
+- [✅] US-2373 – Save academic data to XML file
+- [✅] US-2374 – Save academic data to JSON file
+- [✅] US-2375 – Generate class assessment summary report
+- [✅] US-2376 – Generate assessment weight report
+- [✅] US-2377 – Generate persistence configuration report
+- [✅] US-2378 – Role-based dynamic menu rendering
+- [✅] US-2379 – Logout
+- [✅] US-2380 – Display role-specific sequential menus
+- [✅] US-2381 – Deliver academic system with Docker
+- [✅] TUS-2382 – Define equality for identifiable domain objects
+- [✅] TUS-2383 – Configure automated testing infrastructure
+- [✅] TUS-2384 – Test identifiable domain object equality
 
 ## 👤 Julia – TUS-2385 a TUS-2396
 
@@ -188,44 +188,44 @@ Marque cada item conforme o trabalho avança e realize commit da versão mais re
 
 ## 👤 Otavio 27 – TUS-2397 a TUS-2414
 
-- [ ] TUS-2397 – Introduce AssessmentService
-- [ ] TUS-2398 – Introduce PersistenceService
-- [ ] TUS-2399 – Introduce ReportService
-- [ ] TUS-2400 – Simplify AcademicSystemController
-- [ ] TUS-2401 – Test ClassService behavior
-- [ ] TUS-2402 – Test AssessmentService behavior
-- [ ] TUS-2403 – Test PersistenceService behavior
-- [ ] TUS-2404 – Test ReportService behavior
-- [ ] TUS-2405 – Test AcademicSystemController delegation behavior
-- [ ] TUS-2406 – Configure JavaFX application infrastructure
-- [ ] TUS-2407 – Create JavaFX login screen
-- [ ] TUS-2414 – Introduce AuthenticationController for JavaFX (Refactoring)
+- [✅] TUS-2397 – Introduce AssessmentService
+- [✅] TUS-2398 – Introduce PersistenceService
+- [✅] TUS-2399 – Introduce ReportService
+- [✅] TUS-2400 – Simplify AcademicSystemController
+- [✅] TUS-2401 – Test ClassService behavior
+- [✅] TUS-2402 – Test AssessmentService behavior
+- [✅] TUS-2403 – Test PersistenceService behavior
+- [✅] TUS-2404 – Test ReportService behavior
+- [✅] TUS-2405 – Test AcademicSystemController delegation behavior
+- [✅] TUS-2406 – Configure JavaFX application infrastructure
+- [✅] TUS-2407 – Create JavaFX login screen
+- [✅] TUS-2414 – Introduce AuthenticationController for JavaFX (Refactoring)
 
 ## 👤 Otavio 30 – TUS-2409 a TUS-2419
 
-- [ ] TUS-2409 – Create JavaFX class registration screen
-- [ ] TUS-2408 – Create JavaFX role-based main screen
-- [ ] US-2410 – Create JavaFX assessment registration screen
-- [ ] TUS-2411 – Create JavaFX report screen
-- [ ] TUS-2412 – Create JavaFX persistence configuration screen
-- [ ] TUS-2413 – Create JavaFX class and assessment visualization screen
-- [ ] TUS-2415 – Configure CI pipeline with GitHub Actions
-- [ ] TUS-2416 – Generate test coverage reports
-- [ ] TUS-2417 – Publish Docker image automatically
-- [ ] TUS-2418 – Configure pull request validation workflow
-- [ ] TUS-2419 – Configure release workflow
+- [✅] TUS-2409 – Create JavaFX class registration screen
+- [✅] TUS-2408 – Create JavaFX role-based main screen
+- [✅] US-2410 – Create JavaFX assessment registration screen
+- [✅] TUS-2411 – Create JavaFX report screen
+- [✅] TUS-2412 – Create JavaFX persistence configuration screen
+- [✅] TUS-2413 – Create JavaFX class and assessment visualization screen
+- [✅] TUS-2415 – Configure CI pipeline with GitHub Actions
+- [✅] TUS-2416 – Generate test coverage reports
+- [✅] TUS-2417 – Publish Docker image automatically
+- [✅] TUS-2418 – Configure pull request validation workflow
+- [✅] TUS-2419 – Configure release workflow
 
 ---
 
 # 🔗 Integração e Entrega Final (Todos)
 
-- [ ] Todos confirmaram que suas partes funcionam individualmente
-- [ ] Código integrado em um único projeto
-- [ ] Testes gerais rodando sem erros
-- [ ] Revisão final do código-fonte realizada
-- [ ] Apresentação preparada
-- [ ] Arquivo de entrega gerado e verificado
-- [ ] Entregue/apresentado em 29/06/2026 no Lab-B207
+- [✅] Todos confirmaram que suas partes funcionam individualmente
+- [✅] Código integrado em um único projeto
+- [✅] Testes gerais rodando sem erros
+- [✅] Revisão final do código-fonte realizada
+- [✅] Apresentação preparada
+- [✅] Arquivo de entrega gerado e verificado
+- [✅] Entregue/apresentado em 29/06/2026 no Lab-B207
 
 ---
 

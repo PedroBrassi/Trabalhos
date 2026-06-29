@@ -28,6 +28,14 @@ public class AuthenticationService {
     }
 
     /**
+     * Construtor de conveniência: usa o repositório de usuários padrão
+     * ({@code users.txt}; se ausente, carrega admin/professor padrão).
+     */
+    public AuthenticationService() {
+        this(new TxtUserRepository("users.txt"));
+    }
+
+    /**
      * Autentica o usuário. Lança AuthenticationException em caso de falha.
      */
     public User authenticate(String username, String password) {

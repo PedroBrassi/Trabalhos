@@ -1,0 +1,19 @@
+# Build
+target/
+*.class
+
+# Logs e dados gerados em runtime
+*.log
+academic-data.*
+users.txt
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
