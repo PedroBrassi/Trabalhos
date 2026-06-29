@@ -14,7 +14,7 @@ public class ReportController {
                 "Sistema Acadêmico"
         );
 
-    }
+    } //teste
 
     @FXML
     private TextArea txtReport;
