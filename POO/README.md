@@ -1,7 +1,7 @@
 # README – Trabalho Semestral
 
 **Orientação a Objetos – Bacharelado em Ciência da Computação** 
-**Apresentação:** 29 de junho de 2026 
+**Apresentação:** 29 de junho de 2026.
 **Professor:** Rodrigo Martins Pagliares
 
 ---
