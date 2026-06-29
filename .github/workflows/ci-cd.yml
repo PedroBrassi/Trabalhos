@@ -1,0 +1,49 @@
+name: Academic System CI-CD
+
+# TUS-2415 - Pipeline de CI/CD. Roda na pasta de integração (POO/Final).
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'POO/Final/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'POO/Final/**'
+      - '.github/workflows/**'
+
+defaults:
+  run:
+    working-directory: POO/Final
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Compilar o projeto
+        run: mvn -B clean compile
+
+      - name: Executar testes
+        run: mvn -B test
+
+      - name: Gerar pacote da aplicação
+        run: mvn -B package
+
+      # TUS-2416 - relatório de cobertura (JaCoCo gerado no build)
+      - name: Publicar artefato (jar)
+        uses: actions/upload-artifact@v4
+        with:
+          name: academic-system
+          path: POO/Final/target/*.jar

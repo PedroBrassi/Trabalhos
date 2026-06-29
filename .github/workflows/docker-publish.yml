@@ -1,0 +1,45 @@
+name: Publish Docker Image
+
+# TUS-2417 - publica automaticamente a imagem Docker no GitHub Container Registry
+# (ghcr.io) a cada push na main que toque na pasta de integração, e em tags v*.
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'POO/Final/**'
+      - '.github/workflows/docker-publish.yml'
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Login no GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Metadados da imagem
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/academic-system
+
+      - name: Build e push da imagem
+        uses: docker/build-push-action@v6
+        with:
+          context: POO/Final
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

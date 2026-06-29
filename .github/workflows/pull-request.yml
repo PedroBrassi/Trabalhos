@@ -1,0 +1,37 @@
+name: Pull Request Validation
+
+# TUS-2418 - valida toda PR para a main que toque na pasta de integração.
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'POO/Final/**'
+      - '.github/workflows/**'
+
+defaults:
+  run:
+    working-directory: POO/Final
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Compilar o projeto
+        run: mvn -B clean compile
+
+      - name: Executar testes
+        run: mvn -B test
+
+      - name: Verificar o pacote
+        run: mvn -B package
