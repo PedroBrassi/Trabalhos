@@ -9,17 +9,25 @@
         <module name="academic-system (1)" />
         <module name="academic-system (5)" />
         <module name="academic-system (3)" />
-        <module name="academic-system (4)" />
       </profile>
       <profile name="Annotation profile for academic-system" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="academic-system" />
+        <module name="academic-system (4)" />
+      </profile>
+      <profile name="Annotation profile for academic-system (2)" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.32/lombok-1.18.32.jar" />
         </processorPath>
         <module name="academic-system (2)" />
-        <module name="academic-system" />
       </profile>
     </annotationProcessing>
   </component>
